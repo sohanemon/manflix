@@ -1,7 +1,12 @@
+import Navbar from '@/features/navbar';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
-  return <h1>Woo hoo</h1>;
+  return (
+    <main className={inter.className}>
+      <Navbar />
+    </main>
+  );
 }
