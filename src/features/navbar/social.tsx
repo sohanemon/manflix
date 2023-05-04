@@ -1,15 +1,16 @@
-import React from 'react';
-import { IconType } from 'react-icons';
 import { BsFacebook, BsLinkedin, BsTwitter, BsYoutube } from 'react-icons/bs';
 
 export default function Social() {
   return (
-    <div className='md:flex items-center gap-3 hidden'>
-      {platform.map((el) => (
-        <span title={el.name} key={el.name}>
-          {el.icon}
-        </span>
-      ))}
+    <div className='md:flex items-center justify-evenly hidden'>
+      <div className='flex items-center gap-3'>
+        {platform.map((el) => (
+          <span title={el.name} key={el.name}>
+            {el.icon}
+          </span>
+        ))}
+      </div>
+      <h1>woo hoo</h1>
     </div>
   );
 }
