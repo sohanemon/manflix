@@ -1,12 +1,12 @@
 'use client';
 import { Listbox } from '@headlessui/react';
 import { useState } from 'react';
-import { BsChevronDown, BsSearch } from 'react-icons/bs';
+import { BsSearch } from 'react-icons/bs';
 import { HiOutlineChevronDown } from 'react-icons/hi';
 
 export default function Search() {
   return (
-    <div className='flex items-center relative px-5 border border-gray-600 focus-within:border-primary rounded-full group'>
+    <div className='flex items-center relative px-5 border border-gray-600 focus-within:border-primary rounded-full group mt-10'>
       <CategorySelect />
       <Input />
     </div>
