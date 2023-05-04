@@ -1,3 +1,4 @@
+import Hero from '@/features/hero';
 import Navbar from '@/features/navbar';
 import { Inter } from 'next/font/google';
 
@@ -7,6 +8,7 @@ export default function Home() {
   return (
     <main className={inter.className}>
       <Navbar />
+      <Hero />
     </main>
   );
 }
