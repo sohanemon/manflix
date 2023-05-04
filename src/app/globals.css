@@ -1,8 +1,14 @@
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --swiper-pagination-color: #ed6a5a;
+  }
   body {
     @apply bg-base text-[#c7d3dd];
   }
