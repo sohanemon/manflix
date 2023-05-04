@@ -1,11 +1,12 @@
 'use client';
-import { BsSearch } from 'react-icons/bs';
-import { useState } from 'react';
 import { Listbox } from '@headlessui/react';
+import { useState } from 'react';
+import { BsChevronDown, BsSearch } from 'react-icons/bs';
+import { HiOutlineChevronDown } from 'react-icons/hi';
 
 export default function Search() {
   return (
-    <div className='flex items-center px-5 border border-gray-600 focus-within:border-primary rounded-full group'>
+    <div className='flex items-center relative px-5 border border-gray-600 focus-within:border-primary rounded-full group'>
       <CategorySelect />
       <Input />
     </div>
@@ -45,11 +46,17 @@ const CategorySelect = () => {
 
   return (
     <Listbox value={selectedTag} onChange={setSelectedTag}>
-      <Listbox.Button>{selectedTag || 'Category'}</Listbox.Button>
+      <Listbox.Button className={'flex items-center gap-1'}>
+        {selectedTag || 'Category'} <HiOutlineChevronDown />
+      </Listbox.Button>
 
-      <Listbox.Options>
+      <Listbox.Options className='absolute top-full space-y-1  divide-y-[1pt] divide-gray-600 border-primary border-t-black border p-4'>
         {tags.map((tag) => (
-          <Listbox.Option key={tag.id} value={tag.name}>
+          <Listbox.Option
+            className={'cursor-pointer'}
+            key={tag.id}
+            value={tag.name}
+          >
             {tag.name}
           </Listbox.Option>
         ))}
