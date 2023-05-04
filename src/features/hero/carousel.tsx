@@ -7,13 +7,14 @@ export default function Carousel() {
   return (
     <>
       <Swiper
+        loop={true}
         pagination={{
           dynamicBullets: true,
         }}
         modules={[Pagination]}
         className='mySwiper'
       >
-        <SwiperSlide>
+        <SwiperSlide className='relative'>
           <Image
             className='w-full h-60 object-cover'
             alt='movie'
@@ -23,8 +24,13 @@ export default function Carousel() {
               'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
             }
           />
+          {/* information */}
+          <div className='absolute right-4 bottom-4 text-right font-semibold'>
+            <h3 className='text-2xl text-primary'>Once Upon a time</h3>
+            <h6 className='text-secondary font-light'>There lived a ghost</h6>
+          </div>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className='relative'>
           <Image
             className='w-full h-60 object-cover'
             alt='movie'
@@ -34,6 +40,11 @@ export default function Carousel() {
               'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
             }
           />
+          {/* information */}
+          <div className='absolute right-4 bottom-4 text-right font-semibold'>
+            <h3 className='text-2xl text-primary'>Once Upon a time</h3>
+            <h6 className='text-secondary font-light'>There lived a ghost</h6>
+          </div>
         </SwiperSlide>
       </Swiper>
     </>
