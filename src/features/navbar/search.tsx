@@ -6,7 +6,7 @@ import { HiOutlineChevronDown } from 'react-icons/hi';
 
 export default function Search() {
   return (
-    <div className='flex items-center relative px-5 border border-gray-600 focus-within:border-primary rounded-full group mt-10'>
+    <div className='flex items-center relative px-5 border border-gray-600 focus-within:border-primary-500 rounded-full group mt-10'>
       <CategorySelect />
       <Input />
     </div>
@@ -50,7 +50,7 @@ const CategorySelect = () => {
         {selectedTag || 'Category'} <HiOutlineChevronDown />
       </Listbox.Button>
 
-      <Listbox.Options className='absolute top-full space-y-1  divide-y-[1pt] divide-gray-600 border-primary border-t-black border p-4'>
+      <Listbox.Options className='absolute top-full space-y-1  divide-y-[1pt] divide-gray-600 border-primary-500 border-t-black border p-4'>
         {tags.map((tag) => (
           <Listbox.Option
             className={'cursor-pointer'}

@@ -7,7 +7,7 @@ export default function ActualNav() {
       <RxHamburgerMenu className='text-2xl' />
       <div className='flex items-center'>
         <CgProfile className='text-2xl' /> &nbsp;<p>Welcome!</p>
-        <Link href={'/login'} className='text-primary'>
+        <Link href={'/login'} className='text-primary-500'>
           &nbsp; Login
         </Link>
       </div>

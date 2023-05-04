@@ -18,6 +18,7 @@ export default function Carousel() {
           <Image
             className='w-full h-60 object-cover'
             alt='movie'
+            priority={true}
             width={'1024'}
             height={'512'}
             src={
@@ -26,8 +27,10 @@ export default function Carousel() {
           />
           {/* information */}
           <div className='absolute right-4 bottom-4 text-right font-semibold'>
-            <h3 className='text-2xl text-primary'>Once Upon a time</h3>
-            <h6 className='text-secondary font-light'>There lived a ghost</h6>
+            <h3 className='text-2xl text-primary-500'>Once Upon a time</h3>
+            <h6 className='text-secondary-500 font-light'>
+              There lived a ghost
+            </h6>
           </div>
         </SwiperSlide>
         <SwiperSlide className='relative'>
@@ -42,8 +45,10 @@ export default function Carousel() {
           />
           {/* information */}
           <div className='absolute right-4 bottom-4 text-right font-semibold'>
-            <h3 className='text-2xl text-primary'>Once Upon a time</h3>
-            <h6 className='text-secondary font-light'>There lived a ghost</h6>
+            <h3 className='text-2xl text-primary-500'>Once Upon a time</h3>
+            <h6 className='text-secondary-500 font-light'>
+              There lived a ghost
+            </h6>
           </div>
         </SwiperSlide>
       </Swiper>
