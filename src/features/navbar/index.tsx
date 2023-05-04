@@ -1,6 +1,6 @@
 import Logo from '@/components/logo';
-import Search from '@/components/search';
-import Social from '@/components/social';
+import Search from '@/features/navbar/search';
+import Social from './social';
 
 export default function Navbar() {
   return (
