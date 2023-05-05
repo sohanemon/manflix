@@ -42,7 +42,7 @@ export default function Page() {
             </button>
             <Link
               className='inline-block align-baseline font-bold text-sm text-primary-500 hover:text-primary-800'
-              href='/'
+              href='/learn-more'
             >
               Learn more
             </Link>
