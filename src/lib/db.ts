@@ -10,7 +10,7 @@ export function addToDB() {
       dislikes: 0,
       likes: 5002,
       link: '',
-      views: 2000,
+      views: 2500,
     },
   });
 }
