@@ -1,5 +1,6 @@
 interface Input {
   label: string;
+  register: Function;
   placeholder?: string;
 }
 
