@@ -1,7 +1,8 @@
 import prisma from '../../prisma/prisma';
 
-export function addToDB() {
-  prisma.video.create({
+export async function addToDB() {
+  console.log('first');
+  await prisma.video.create({
     data: {
       title: 'Alhamdulillah',
       author: 'unkhonwn',
