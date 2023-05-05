@@ -1,3 +1,4 @@
+'use client';
 import { BsFacebook, BsLinkedin, BsTwitter, BsYoutube } from 'react-icons/bs';
 
 export default function Social() {
@@ -10,7 +11,7 @@ export default function Social() {
           </span>
         ))}
       </div>
-      <h1>woo hoo</h1>
+      <button>woo hoo</button>
     </div>
   );
 }
