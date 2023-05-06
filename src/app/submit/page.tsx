@@ -10,9 +10,20 @@ export default function Page() {
     formState: { errors },
   } = useForm();
 
-  function onSubmit(data: any) {
-    console.log('first');
-    console.log(data);
+  async function onSubmit(data: any) {
+    const modifiedTags = data.tags
+      .split(',')
+      .map((item: string) => item.trim());
+
+    fetch('api/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ...data, tags: modifiedTags }),
+    })
+      .then((res) => res?.json())
+      .then((data) => console.log(data));
   }
 
   return (
@@ -23,8 +34,9 @@ export default function Page() {
           className='bg-transparent/50 shadow-md rounded px-8 pt-6 pb-8 mb-4'
         >
           {/* place where Input will go */}
-          <Input register={register} label='title' />
+          <Input required register={register} label='title' />
           <Input
+            required
             register={register}
             label='link'
             placeholder='youtube.com/watch?v=yi3NZn9HSx'
@@ -36,9 +48,24 @@ export default function Page() {
             placeholder='write a short description . . .'
           />
           <div className='flex gap-3'>
-            <Input register={register} label='likes' placeholder='123' />
-            <Input register={register} label='dislikes' placeholder='123' />
-            <Input register={register} label='views' placeholder='123' />
+            <Input
+              type='number'
+              register={register}
+              label='likes'
+              placeholder='123'
+            />
+            <Input
+              type='number'
+              register={register}
+              label='dislikes'
+              placeholder='123'
+            />
+            <Input
+              type='number'
+              register={register}
+              label='views'
+              placeholder='123'
+            />
           </div>
           <Input
             register={register}
@@ -86,7 +113,7 @@ export default function Page() {
   );
 }
 
-const Input = ({ label, placeholder, register }: Input) => {
+const Input = ({ label, placeholder, register, required, type }: Input) => {
   return (
     <>
       <div className='mb-4'>
@@ -105,10 +132,12 @@ const Input = ({ label, placeholder, register }: Input) => {
           />
         ) : (
           <input
-            {...register(label)}
+            {...register(label, {
+              required,
+            })}
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 leading-tight focus:outline-none focus:shadow-outline placeholder:capitalize placeholder:text-gray-400 placeholder:font-light'
             id={label}
-            type='text'
+            type={type || 'text'}
             placeholder={placeholder || label}
           />
         )}
