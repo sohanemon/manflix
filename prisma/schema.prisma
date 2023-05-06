@@ -14,11 +14,11 @@ model Video {
   id          Int      @id @default(autoincrement())
   title       String
   link        String
-  author      String
-  description String   @default(dbgenerated("No description available"))
+  author      String?
+  description String?
   publishedAt DateTime @default(now())
-  likes       Int
-  dislikes    Int      @default(0)
-  views       Int      @default(0)
-  tags        String[] @default([])
+  likes       String?
+  dislikes    String?
+  views       String?
+  tags        String[]
 }
