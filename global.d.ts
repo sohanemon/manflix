@@ -1,7 +1,9 @@
 interface Input {
+  type?: string;
   label: string;
   register: Function;
   placeholder?: string;
+  required?: boolean;
 }
 
 interface Video {
