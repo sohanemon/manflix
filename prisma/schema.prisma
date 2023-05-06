@@ -13,7 +13,8 @@ datasource db {
 model Video {
   id          Int      @id @default(autoincrement())
   title       String
-  link        String
+  link        String   @unique
+  thumbnail   String?
   author      String?
   description String?
   publishedAt DateTime @default(now())
