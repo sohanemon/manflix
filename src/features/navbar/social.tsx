@@ -1,9 +1,10 @@
 'use client';
+import LinkBtn from '@/components/link-btn';
 import { BsFacebook, BsLinkedin, BsTwitter, BsYoutube } from 'react-icons/bs';
 
 export default function Social() {
   return (
-    <div className='md:flex items-center justify-evenly hidden'>
+    <div className='items-center hidden md:flex justify-evenly'>
       <div className='flex items-center gap-3'>
         {platform.map((el) => (
           <span title={el.name} key={el.name}>
@@ -11,7 +12,7 @@ export default function Social() {
           </span>
         ))}
       </div>
-      <button>woo hoo</button>
+      <LinkBtn className='ml-5'>Add video</LinkBtn>
     </div>
   );
 }

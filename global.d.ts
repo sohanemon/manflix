@@ -1,3 +1,8 @@
+interface Props {
+  readonly children: React.ReactNode;
+  className?: string;
+}
+
 interface Input {
   type?: string;
   label: string;
@@ -16,3 +21,17 @@ interface Video {
   views?: number;
   tags?: string[];
 }
+
+type Video = {
+  id: number;
+  title: string;
+  link: string;
+  thumbnail?: string;
+  author?: string;
+  description?: string;
+  publishedAt: Date;
+  likes?: string;
+  dislikes?: string;
+  views?: string;
+  tags: string[];
+};
