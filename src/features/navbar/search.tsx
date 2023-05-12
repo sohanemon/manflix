@@ -14,7 +14,6 @@ export default function Search() {
 }
 
 const Input = () => {
-  const [state, setstate] = useState();
   function handleChange() {
     console.log('lololololo');
   }
@@ -27,7 +26,7 @@ const Input = () => {
         </label>
 
         <input
-          onInput={handleChange}
+          onKeyUp={handleChange}
           type='email'
           id='UserEmail'
           placeholder='grow your beard'
