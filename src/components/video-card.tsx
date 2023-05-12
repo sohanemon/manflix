@@ -16,9 +16,9 @@ export default function VideoCard({
     >
       <div className='invisible rotate-2 -rotate-2' />
       <Image
-        className={`w-full transition-all duration-500 group-hover:${
-          chooseOpt() ? '-' : ''
-        }rotate-5 group-hover:brightness-50 group-hover:scale-110 aspect-video`}
+        className={`w-full transition-all duration-500 ${
+          chooseOpt() ? 'group-hover:-rotate-2' : 'group-hover:rotate-2'
+        } group-hover:brightness-50 group-hover:scale-110 aspect-video`}
         src={thumbnail!}
         alt={title + ' - thumbnail'}
         width={300}
