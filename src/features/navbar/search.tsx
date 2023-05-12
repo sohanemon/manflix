@@ -6,7 +6,7 @@ import { HiOutlineChevronDown } from 'react-icons/hi';
 
 export default function Search() {
   return (
-    <div className='flex items-center relative px-5 border border-gray-600 focus-within:border-primary-500 rounded-full group mt-10'>
+    <div className='flex items-center relative px-5 border border-gray-600 focus-within:border-primary-500 rounded-full group mt-10 md:mt-0'>
       <CategorySelect />
       <Input />
     </div>
