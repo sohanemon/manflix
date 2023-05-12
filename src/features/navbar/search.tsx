@@ -14,8 +14,10 @@ export default function Search() {
 }
 
 const Input = () => {
-  function handleChange() {
-    console.log('lololololo');
+  function handleChange(e: React.KeyboardEvent) {
+    if (e.key === 'Enter') {
+      console.log('first');
+    }
   }
 
   return (
@@ -26,7 +28,7 @@ const Input = () => {
         </label>
 
         <input
-          onKeyUp={handleChange}
+          onKeyUp={(e) => handleChange(e)}
           type='email'
           id='UserEmail'
           placeholder='grow your beard'
