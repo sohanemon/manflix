@@ -11,27 +11,16 @@ interface Input {
   required?: boolean;
 }
 
-interface Video {
-  title: string;
-  link: string;
-  author: string;
-  description: string;
-  likes?: number;
-  dislikes?: number;
-  views?: number;
-  tags?: string[];
-}
-
 type Video = {
-  id: number;
+  readonly id?: number;
   title: string;
   link: string;
   thumbnail?: string;
   author?: string;
   description?: string;
-  publishedAt: Date;
+  publishedAt?: string;
   likes?: string;
   dislikes?: string;
   views?: string;
-  tags: string[];
+  tags?: string[];
 };
