@@ -10,6 +10,7 @@ export default function Home() {
     <main className={inter.className}>
       <Navbar />
       <Hero />
+      <br />
       {/* @ts-ignore */}
       <RecentShots />
     </main>

@@ -10,6 +10,10 @@ const nextConfig = {
         hostname: 'images.unsplash.com',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'ytimg.googleusercontent.com',
+      },
     ],
   },
 };
