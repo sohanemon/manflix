@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import { JSDOM } from 'jsdom';
 import thumbnailToId from '@/util/thumbnail-to-id';
 
-export async function GET(req: Request) {
+export async function POST(req: Request) {
   const data = await req.json();
   console.log('🛑 ~ GET ~ data:', data);
 
