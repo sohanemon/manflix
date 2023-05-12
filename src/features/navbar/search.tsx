@@ -1,6 +1,6 @@
 'use client';
 import { Listbox } from '@headlessui/react';
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { HiOutlineChevronDown } from 'react-icons/hi';
 
@@ -14,10 +14,19 @@ export default function Search() {
 }
 
 const Input = () => {
-  function handleChange(e: React.KeyboardEvent) {
-    if (e.key === 'Enter') {
+  const [searchParam, setSearchParam] = useState('');
+  console.log('🛑 ~ Input ~ searchParam:', searchParam);
+
+  const [isPending, startTransition] = useTransition();
+  function handleKeyEnter(e: React.KeyboardEvent) {
+    if (e.key === 'Enter' && !isPending) {
       console.log('first');
     }
+  }
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    startTransition(() => {
+      setSearchParam(e.target.value);
+    });
   }
 
   return (
@@ -28,7 +37,8 @@ const Input = () => {
         </label>
 
         <input
-          onKeyUp={(e) => handleChange(e)}
+          onKeyUp={(e) => handleKeyEnter(e)}
+          onChange={(e) => handleChange(e)}
           type='email'
           id='UserEmail'
           placeholder='grow your beard'
