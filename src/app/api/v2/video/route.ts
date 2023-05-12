@@ -12,19 +12,26 @@ export async function GET(req: Request) {
   const nodeList = searchNode?.childNodes;
 
   let videos: Video[] = [];
-  nodeList?.forEach((el) => {
+  nodeList?.forEach((el, idx) => {
     let video: Video;
     if (el.childNodes[2]?.textContent) {
       const element = el as HTMLDivElement;
+
       video = {
+        id: idx,
         title: element.querySelector('.gytTitle')?.textContent!,
+        thumbnail: element
+          .querySelector('.gytImg')
+          ?.querySelector('img')
+          ?.getAttribute('src')!,
         link: '',
-        author: '',
+        author: element.querySelector('small.d-block.text-truncate > a')
+          ?.textContent!,
         description: '',
       };
       videos.push(video && video);
     }
   });
-  console.log(videos!);
-  return NextResponse.json('data');
+  //   console.log(videos!);
+  return NextResponse.json(videos);
 }
