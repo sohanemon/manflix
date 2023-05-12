@@ -14,10 +14,11 @@ export default function VideoCard({
       href={`/watch/${id}`}
       className='relative w-full max-w-xs overflow-hidden text-black transition-all bg-white rounded-lg group hover:rounded-none '
     >
+      <div className='invisible rotate-2 -rotate-2' />
       <Image
         className={`w-full transition-all duration-500 group-hover:${
           chooseOpt() ? '-' : ''
-        }rotate-2 group-hover:brightness-50 group-hover:scale-110 aspect-video`}
+        }rotate-5 group-hover:brightness-50 group-hover:scale-110 aspect-video`}
         src={thumbnail!}
         alt={title + ' - thumbnail'}
         width={300}
