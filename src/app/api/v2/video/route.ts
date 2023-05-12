@@ -4,8 +4,9 @@ import { JSDOM } from 'jsdom';
 import thumbnailToId from '@/util/thumbnail-to-id';
 
 export async function POST(req: Request) {
-  const data = await req.json();
-  console.log('🛑 ~ GET ~ data:', data);
+  const { searchParams } = new URL(req.url);
+  const query = searchParams.get('query');
+  console.log('🛑 ~ POST ~ id:', query);
 
   const response = await fetch('https://www.genyt.com/search.php?q=athlean+x');
   const html = await response.text();
