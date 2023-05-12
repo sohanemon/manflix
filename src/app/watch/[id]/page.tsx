@@ -1,3 +1,5 @@
+import Description from './description';
+
 interface Props {
   readonly children: React.ReactNode;
   params: { id: string };
@@ -27,7 +29,7 @@ export default async function Page({ params: { id } }: Props) {
           </p>
         </div>
         <br />
-        <p className='text-justify'>{videoDetails.description}</p>
+        <Description description={videoDetails.description!} />
       </div>
     </section>
   );
