@@ -24,6 +24,7 @@ export async function GET(req: Request) {
           .querySelector('.gytImg')
           ?.querySelector('img')
           ?.getAttribute('src')!,
+        duration: element.querySelector('span.duration')?.textContent!,
         link: '',
         author: element.querySelector('small.d-block.text-truncate > a')
           ?.textContent!,

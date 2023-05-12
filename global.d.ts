@@ -17,6 +17,7 @@ type Video = {
   link: string;
   thumbnail?: string;
   author?: string;
+  duration?: string;
   description?: string;
   publishedAt?: string;
   likes?: string;
