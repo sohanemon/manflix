@@ -15,7 +15,6 @@ export default function Search() {
 
 const Input = () => {
   const [searchParam, setSearchParam] = useState('');
-  console.log('🛑 ~ Input ~ searchParam:', searchParam);
 
   const [isPending, startTransition] = useTransition();
   function handleKeyEnter(e: React.KeyboardEvent) {
