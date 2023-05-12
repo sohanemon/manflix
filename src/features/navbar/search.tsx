@@ -6,7 +6,7 @@ import { HiOutlineChevronDown } from 'react-icons/hi';
 
 export default function Search() {
   return (
-    <div className='flex items-center relative px-5 border border-gray-600 focus-within:border-primary-500 rounded-full group mt-10 md:mt-0'>
+    <div className='relative flex items-center px-5 mt-10 border border-gray-600 rounded-full focus-within:border-primary-500 group md:mt-0'>
       <CategorySelect />
       <Input />
     </div>
@@ -14,6 +14,11 @@ export default function Search() {
 }
 
 const Input = () => {
+  const [state, setstate] = useState();
+  function handleChange() {
+    console.log('lololololo');
+  }
+
   return (
     <>
       <div className='relative pl-2'>
@@ -22,6 +27,7 @@ const Input = () => {
         </label>
 
         <input
+          onInput={handleChange}
           type='email'
           id='UserEmail'
           placeholder='grow your beard'
