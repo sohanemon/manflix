@@ -5,7 +5,6 @@ module.exports = {
     './src/features/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  safelist: ['rotate-2', '-rotate-2'],
   theme: {
     extend: {
       colors: {

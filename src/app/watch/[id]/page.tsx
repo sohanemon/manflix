@@ -8,7 +8,6 @@ export default async function Page({ params: { id } }: Props) {
     method: 'POST',
   });
   const videoDetails = (await res.json()) as VideoDetails;
-  console.log('🛑 ~ Page ~ videoDetails:', videoDetails);
 
   return (
     <section className='w-full mx-auto md:w-3/4 lg:w-3/5 '>
@@ -18,9 +17,11 @@ export default async function Page({ params: { id } }: Props) {
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
       ></iframe>
       <div className='mt-4'>
-        <h1 className='text-xl'>{videoDetails.title}</h1>
+        <h1 className='text-xl tracking-wide text-white '>
+          {videoDetails.title}
+        </h1>
         <div className='flex justify-between'>
-          <p>{videoDetails.author}</p>
+          <p className='text-primary-500'>{videoDetails.author}</p>
           <p>
             {videoDetails.views} views - {videoDetails.publishedAt}
           </p>
