@@ -1,4 +1,5 @@
 import VideoCard from '../../components/video-card';
+import ShowMore from './show-more';
 
 export default async function Index() {
   const res = await fetch('http://localhost:3000/api/v2/video', {
@@ -15,6 +16,7 @@ export default async function Index() {
       {videos.map((video) => (
         <VideoCard key={video.id} {...video}></VideoCard>
       ))}
+      <ShowMore />
     </div>
   );
 }

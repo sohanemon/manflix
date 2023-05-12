@@ -6,7 +6,7 @@ import Social from './social';
 export default function Navbar() {
   return (
     <>
-      <div className='w-5/6 mx-auto my-4 flex flex-col md:flex-row  items-center justify-between'>
+      <div className='w-5/6 mx-auto my-4 gap-4 flex flex-col md:flex-row  items-center justify-between'>
         <Logo />
         <Search />
         <Social />

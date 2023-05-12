@@ -1,19 +1,33 @@
-'use client';
 interface Props {
   readonly children: React.ReactNode;
   params: { id: string };
 }
-export default function Page({ params: { id } }: Props) {
-  console.log('🛑 ~ Page ~ props:', id);
+export default async function Page({ params: { id } }: Props) {
+  const res = await fetch('http://localhost:3000/api/v2/player', {
+    body: JSON.stringify({ id }),
+    method: 'POST',
+  });
+  const videoDetails = (await res.json()) as VideoDetails;
+  console.log('🛑 ~ Page ~ videoDetails:', videoDetails);
 
   return (
-    <>
+    <section className='w-full mx-auto md:w-3/4 lg:w-3/5 '>
       <iframe
-        width='560'
-        height='315'
-        src='https://www.youtube.com/embed/VIDEO_ID'
+        className='w-full mx-auto aspect-video'
+        src={videoDetails.link}
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
       ></iframe>
-    </>
+      <div className='mt-4'>
+        <h1 className='text-xl'>{videoDetails.title}</h1>
+        <div className='flex justify-between'>
+          <p>{videoDetails.author}</p>
+          <p>
+            {videoDetails.views} views - {videoDetails.publishedAt}
+          </p>
+        </div>
+        <br />
+        <p className='text-justify'>{videoDetails.description}</p>
+      </div>
+    </section>
   );
 }
