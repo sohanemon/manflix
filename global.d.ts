@@ -12,7 +12,7 @@ interface Input {
 }
 
 type Video = {
-  readonly id?: number;
+  readonly id?: string;
   title: string;
   link: string;
   thumbnail?: string;
@@ -24,4 +24,15 @@ type Video = {
   dislikes?: string;
   views?: string;
   tags?: string[];
+};
+
+type VideoDetails = {
+  id: string;
+  title: string;
+  link: string;
+  author?: string;
+  description?: string;
+  publishedAt?: string;
+  likes?: string;
+  views?: string;
 };

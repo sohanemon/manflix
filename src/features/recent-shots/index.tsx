@@ -1,4 +1,4 @@
-import Video from './video';
+import VideoCard from '../../components/video-card';
 
 export default async function Index() {
   const res = await fetch('http://localhost:3000/api/v2/video', {
@@ -13,7 +13,7 @@ export default async function Index() {
   return (
     <div className='grid grid-cols-1 gap-5 mx-auto sm:grid-cols-2 md:grid-cols-3 justify-items-evenly lg:w-3/4'>
       {videos.map((video) => (
-        <Video key={video.id} {...video}></Video>
+        <VideoCard key={video.id} {...video}></VideoCard>
       ))}
     </div>
   );

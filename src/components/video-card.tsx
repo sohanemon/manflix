@@ -2,10 +2,16 @@ import { chooseOpt } from '@/util/choose-opt';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Video({ thumbnail, title, author, duration }: Video) {
+export default function VideoCard({
+  id,
+  thumbnail,
+  title,
+  author,
+  duration,
+}: Video) {
   return (
     <Link
-      href={'/'}
+      href={`/watch/${id}`}
       className='relative w-full max-w-xs overflow-hidden text-black transition-all bg-white rounded-lg group hover:rounded-none '
     >
       <Image
