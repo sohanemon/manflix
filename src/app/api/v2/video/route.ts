@@ -8,7 +8,7 @@ export async function POST(req: Request) {
   const query = searchParams.get('query');
   console.log('🛑 ~ POST ~ id:', query?.replaceAll(' ', '+'));
 
-  const response = await fetch(process.env.SEARCH_URL + 'athlean+x');
+  const response = await fetch(process.env.SEARCH_URL + 'trending');
   const html = await response.text();
   const {
     window: { document },
