@@ -10,7 +10,11 @@ export default function Description({ description }: DescriptionProps) {
   const [isShowMore, setShowMore] = useState(false);
   return (
     <>
-      <motion.p layout className='mb-5 text-sm text-justify'>
+      <motion.p
+        layout
+        className='mb-5 text-sm text-justify'
+        transition={{ type: 'just' }}
+      >
         {isShowMore ? (
           description
         ) : (
