@@ -1,5 +1,9 @@
 import { RootState } from '@/store';
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {
+  createAsyncThunk,
+  createSlice,
+  configureStore,
+} from '@reduxjs/toolkit';
 
 interface VideoStateProps {
   videos: Video[];
