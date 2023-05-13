@@ -4,9 +4,11 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 interface VideoStateProps {
   videos: Video[];
+  searchTriggered: boolean;
 }
 const initialState: VideoStateProps = {
   videos: [],
+  searchTriggered: false,
 };
 
 export const fetchVideosThunk = createAsyncThunk(
@@ -19,7 +21,11 @@ export const fetchVideosThunk = createAsyncThunk(
 const videoSlice = createSlice({
   name: 'videos',
   initialState,
-  reducers: {},
+  reducers: {
+    triggerSearch(state) {
+      state.searchTriggered = !state.searchTriggered;
+    },
+  },
   extraReducers(builder) {
     builder.addCase(fetchVideosThunk.fulfilled, (state, action) => {
       state.videos = action.payload;
