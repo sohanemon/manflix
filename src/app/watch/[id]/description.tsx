@@ -13,7 +13,7 @@ export default function Description({ description }: DescriptionProps) {
       <motion.p
         layout
         className='mb-20 text-justify'
-        transition={{ damping: 0 }}
+        transition={{ type: 'just' }}
       >
         {isShowMore ? (
           description
