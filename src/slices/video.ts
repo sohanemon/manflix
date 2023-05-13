@@ -1,6 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+interface VideoStateProps {
+  videos: Video[];
+}
+const initialState: VideoStateProps = {
   videos: [],
 };
 
@@ -11,7 +14,6 @@ export const fetchVideosThunk = createAsyncThunk(
       'http://localhost:3000/api/v2/video?query=abdullah bin abdur razzak new',
       {
         next: { revalidate: 50 },
-        cache: 'no-cache',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,20 +28,15 @@ export const fetchVideosThunk = createAsyncThunk(
 const videoSlice = createSlice({
   name: 'videos',
   initialState,
-  reducers: {
-
-  },
+  reducers: {},
   extraReducers(builder) {
-    builder
-      .addCase(fetchVideosThunk.fulfilled, (state, action) => {
-        console.log('🛑 ~ builder.addCase ~ action:', action);
-        console.log('🛑 ~ builder.addCase ~ state:', state);
-      })
-
+    builder.addCase(fetchVideosThunk.fulfilled, (state, action) => {
+      state.videos = action.payload;
+    });
   },
 });
 
-export const {  } = videoSlice.actions;
+export const {} = videoSlice.actions;
 
 // export const selectValues = (state: RootState) => {
 //   return { value: state.value, value2: state.value2 };
