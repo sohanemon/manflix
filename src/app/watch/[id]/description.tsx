@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 interface DescriptionProps {
@@ -9,7 +10,7 @@ export default function Description({ description }: DescriptionProps) {
   const [isShowMore, setShowMore] = useState(false);
   return (
     <>
-      <p className='text-justify'>
+      <motion.p layout className='text-justify'>
         {isShowMore ? (
           description
         ) : (
@@ -25,7 +26,7 @@ export default function Description({ description }: DescriptionProps) {
             </button>
           </>
         )}
-      </p>
+      </motion.p>
     </>
   );
 }
