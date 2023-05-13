@@ -1,3 +1,4 @@
+import { RootState } from '@/store';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 interface VideoStateProps {
@@ -38,7 +39,6 @@ const videoSlice = createSlice({
 
 export const {} = videoSlice.actions;
 
-// export const selectValues = (state: RootState) => {
-//   return { value: state.value, value2: state.value2 };
-// };
+export const selectVideos = (state: RootState) => state.videos;
+
 export default videoSlice.reducer;
