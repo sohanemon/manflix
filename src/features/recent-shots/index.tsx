@@ -11,12 +11,6 @@ export default function Index() {
   const videos = use(videoFetcher('abdullah bin abdur razzak new'));
   const searchedVideos = useSelector(selectVideos);
 
-  useEffect(() => {
-    console.log('🛑 ~ Index ~ searchedVideos:', searchedVideos);
-
-    return () => {};
-  }, [searchedVideos]);
-
   console.log('🛑 ~ Index ~ searchedVideos:', searchedVideos);
 
   return (
