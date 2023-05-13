@@ -1,3 +1,4 @@
+import { RootState } from '@/store';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -47,4 +48,7 @@ const videoSlice = createSlice({
 
 export const { increment } = videoSlice.actions;
 
+// export const selectValues = (state: RootState) => {
+//   return { value: state.value, value2: state.value2 };
+// };
 export default videoSlice.reducer;
