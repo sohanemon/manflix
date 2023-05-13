@@ -15,8 +15,8 @@ const initialState: VideoStateProps = {
 
 export const fetchVideosThunk = createAsyncThunk(
   'fetch-videos',
-  async (payload) => {
-    return await videoFetcher(payload);
+  async (searchParam: string) => {
+    return await videoFetcher(searchParam);
   }
 );
 

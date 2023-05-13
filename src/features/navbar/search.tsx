@@ -24,7 +24,7 @@ const Input = () => {
   function handleKeyEnter(e: React.KeyboardEvent) {
     if (e.key === 'Enter' && !isPending) {
       console.log('first');
-      dispatch(fetchVideosThunk);
+      dispatch(fetchVideosThunk('nice'));
     }
   }
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
