@@ -23,8 +23,7 @@ const Input = () => {
   const [isPending, startTransition] = useTransition();
   function handleKeyEnter(e: React.KeyboardEvent) {
     if (e.key === 'Enter' && !isPending) {
-      console.log('first');
-      dispatch(fetchVideosThunk('nice'));
+      dispatch(fetchVideosThunk(searchParam));
     }
   }
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
