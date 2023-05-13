@@ -12,6 +12,5 @@ export default function Fetcher() {
 
     return () => {};
   }, [dispatch]);
-
-  return <></>;
+  return null;
 }
