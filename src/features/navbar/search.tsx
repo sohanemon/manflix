@@ -1,8 +1,10 @@
 'use client';
+import { fetchVideosThunk, increment } from '@/slices/video';
 import { Listbox } from '@headlessui/react';
 import { useState, useTransition } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { HiOutlineChevronDown } from 'react-icons/hi';
+import { useDispatch } from 'react-redux';
 
 export default function Search() {
   return (
@@ -14,12 +16,14 @@ export default function Search() {
 }
 
 const Input = () => {
+  const dispatch = useDispatch();
   const [searchParam, setSearchParam] = useState('');
 
   const [isPending, startTransition] = useTransition();
   function handleKeyEnter(e: React.KeyboardEvent) {
     if (e.key === 'Enter' && !isPending) {
       console.log('first');
+      dispatch(increment());
     }
   }
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
