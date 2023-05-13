@@ -24,7 +24,10 @@ const videoSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(fetchVideosThunk.fulfilled, reducer);
+    builder.addCase(fetchVideosThunk.fulfilled, (state, action) => {
+      console.log('🛑 ~ builder.addCase ~ action:', action);
+      console.log('🛑 ~ builder.addCase ~ state:', state);
+    });
   },
 });
 
