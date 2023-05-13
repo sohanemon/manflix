@@ -1,7 +1,8 @@
 'use client';
+
 import { videoFetcher } from '@/lib/fetcher';
 import { selectVideos } from '@/slices/video';
-import { use } from 'react';
+import { use, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import VideoCard from '../../components/video-card';
 import ShowMore from './show-more';
@@ -9,6 +10,13 @@ import ShowMore from './show-more';
 export default function Index() {
   const videos = use(videoFetcher('abdullah bin abdur razzak new'));
   const searchedVideos = useSelector(selectVideos);
+
+  useEffect(() => {
+    console.log('🛑 ~ Index ~ searchedVideos:', searchedVideos);
+
+    return () => {};
+  }, [searchedVideos]);
+
   console.log('🛑 ~ Index ~ searchedVideos:', searchedVideos);
 
   return (
