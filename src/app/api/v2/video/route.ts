@@ -6,9 +6,10 @@ import thumbnailToId from '@/util/thumbnail-to-id';
 export async function POST(req: Request) {
   const { searchParams } = new URL(req.url);
   const query = searchParams.get('query');
-  console.log('🛑 ~ POST ~ id:', query?.replaceAll(' ', '+'));
 
-  const response = await fetch(process.env.SEARCH_URL + 'trending');
+  const response = await fetch(
+    process.env.SEARCH_URL + query?.replaceAll(' ', '+')!
+  );
   const html = await response.text();
   const {
     window: { document },
