@@ -12,7 +12,6 @@ export default function Home() {
       <Navbar />
       <Hero />
       <br />
-      {/* <Fetcher /> */}
       <RecentShots />
     </main>
   );

@@ -1,3 +1,4 @@
+import { videoFetcher } from '@/lib/fetcher';
 import { RootState } from '@/store';
 import {
   createAsyncThunk,
@@ -15,17 +16,7 @@ const initialState: VideoStateProps = {
 export const fetchVideosThunk = createAsyncThunk(
   'fetch-videos',
   async (payload) => {
-    const res = await fetch(
-      'http://localhost:3000/api/v2/video?query=abdullah bin abdur razzak new',
-      {
-        next: { revalidate: 50 },
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    );
-    const videos: Video[] = await res.json();
+    const videos: Video[] = await videoFetcher(payload);
     return videos;
   }
 );
