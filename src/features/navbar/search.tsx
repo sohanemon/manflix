@@ -1,5 +1,4 @@
 'use client';
-import { fetchVideosThunk, increment } from '@/slices/video';
 import { Listbox } from '@headlessui/react';
 import { useState, useTransition } from 'react';
 import { BsSearch } from 'react-icons/bs';
@@ -23,7 +22,6 @@ const Input = () => {
   function handleKeyEnter(e: React.KeyboardEvent) {
     if (e.key === 'Enter' && !isPending) {
       console.log('first');
-      dispatch(increment());
     }
   }
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
