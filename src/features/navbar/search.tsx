@@ -23,6 +23,9 @@ const Input = () => {
   const [isPending, startTransition] = useTransition();
   function handleKeyEnter(e: React.KeyboardEvent) {
     if (e.key === 'Enter' && !isPending) {
+      console.log(
+        ' lorem, ipsum dolor sit amet consectetur adipisicing elit. ullam odio hic nisi voluptatem reprehenderit, cum quidem aliquam beatae asperiores dignissimos libero dolor ea fugit possimus eos, quisquam iste nostrum fuga.'
+      );
       dispatch(fetchVideosThunk(searchParam));
     }
   }
