@@ -1,9 +1,11 @@
 import Description from './description';
+import Title from './title';
 
 interface Props {
   readonly children: React.ReactNode;
   params: { id: string };
 }
+
 export default async function Page({ params: { id } }: Props) {
   const res = await fetch('http://localhost:3000/api/v2/player', {
     body: JSON.stringify({ id }),
@@ -19,9 +21,7 @@ export default async function Page({ params: { id } }: Props) {
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
       ></iframe>
       <div className='mt-4'>
-        <h1 className='text-xl tracking-wide text-white '>
-          {videoDetails.title}
-        </h1>
+        <Title title={videoDetails.title}></Title>
         <div className='flex justify-between'>
           <p className='text-primary-500'>{videoDetails.author}</p>
           <p>
