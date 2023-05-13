@@ -1,5 +1,6 @@
 'use client';
 import { fetchVideosThunk } from '@/slices/video';
+import { AppDispatch } from '@/store';
 import { Listbox } from '@headlessui/react';
 import { useState, useTransition } from 'react';
 import { BsSearch } from 'react-icons/bs';
@@ -16,7 +17,7 @@ export default function Search() {
 }
 
 const Input = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const [searchParam, setSearchParam] = useState('');
 
   const [isPending, startTransition] = useTransition();
