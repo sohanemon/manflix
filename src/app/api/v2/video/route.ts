@@ -6,9 +6,9 @@ import thumbnailToId from '@/util/thumbnail-to-id';
 export async function POST(req: Request) {
   const { searchParams } = new URL(req.url);
   const query = searchParams.get('query');
-  console.log('🛑 ~ POST ~ id:', query);
+  console.log('🛑 ~ POST ~ id:', query?.replaceAll(' ', '+'));
 
-  const response = await fetch('https://www.genyt.com/search.php?q=athlean+x');
+  const response = await fetch(process.env.SEARCH_URL + 'athlean+x');
   const html = await response.text();
   const {
     window: { document },
