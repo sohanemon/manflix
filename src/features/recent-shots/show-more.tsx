@@ -1,5 +1,12 @@
 'use client';
+
+import { selectVideos } from '@/slices/video';
+import { useSelector } from 'react-redux';
+
 export default function ShowMore() {
+  const searchedVideos = useSelector(selectVideos);
+  console.log('🛑 ~ ShowMore ~ searchedVideos:', searchedVideos);
+
   return (
     <>
       <div
