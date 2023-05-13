@@ -40,7 +40,7 @@ const videoSlice = createSlice({
         console.log('🛑 ~ builder.addCase ~ action:', action);
         console.log('🛑 ~ builder.addCase ~ state:', state);
       })
-      .addCase('increment', function (state) {
+      .addCase('videos/increment', function (state) {
         state.value2++;
       });
   },
