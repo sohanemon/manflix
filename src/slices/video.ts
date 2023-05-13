@@ -39,6 +39,6 @@ const videoSlice = createSlice({
 
 export const {} = videoSlice.actions;
 
-export const selectVideos = (state: RootState) => state.videos;
+export const selectVideos = (state: RootState) => state?.videos.videos;
 
 export default videoSlice.reducer;
