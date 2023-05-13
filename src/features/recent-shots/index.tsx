@@ -3,7 +3,7 @@ import ShowMore from './show-more';
 
 export default async function Index() {
   const res = await fetch(
-    'http://localhost:3000/api/v2/video?query=abdullah bin abdur razzak',
+    'http://localhost:3000/api/v2/video?query=abdullah bin abdur razzak new',
     {
       next: { revalidate: 50 },
       cache: 'no-cache',
