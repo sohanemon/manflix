@@ -2,7 +2,7 @@
 
 import { videoFetcher } from '@/lib/fetcher';
 import { selectVideos } from '@/slices/video';
-import { use, useEffect } from 'react';
+import { use } from 'react';
 import { useSelector } from 'react-redux';
 import VideoCard from '../../components/video-card';
 import ShowMore from './show-more';
