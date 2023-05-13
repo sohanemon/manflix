@@ -22,8 +22,8 @@ const videoSlice = createSlice({
   name: 'videos',
   initialState,
   reducers: {
-    triggerSearch(state) {
-      state.searchTriggered = !state.searchTriggered;
+    triggerSearch(state, { payload }) {
+      state.searchTriggered = payload;
     },
   },
   extraReducers(builder) {
@@ -33,7 +33,7 @@ const videoSlice = createSlice({
   },
 });
 
-export const {} = videoSlice.actions;
+export const { triggerSearch } = videoSlice.actions;
 
 export const selectVideos = (state: RootState) => state?.videos.videos;
 
