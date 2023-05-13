@@ -17,6 +17,7 @@ const fetchVideosThunk = createAsyncThunk('fetch-videos', async (payload) => {
     }
   );
   const videos: Video[] = await res.json();
+  return videos;
 });
 
 const videoSlice = createSlice({
