@@ -8,9 +8,7 @@ import { useDispatch } from 'react-redux';
 export default function Fetcher() {
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    dispatch(fetchVideosThunk(''));
-
-    return () => {};
+    dispatch(fetchVideosThunk('trending web development technology'));
   }, [dispatch]);
   return null;
 }

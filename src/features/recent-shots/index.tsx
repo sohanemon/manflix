@@ -14,11 +14,6 @@ import VideoCard from '../../components/video-card';
 import ShowMore from './show-more';
 
 export default function Index() {
-  const dispatch = useDispatch<AppDispatch>();
-  // useEffect(() => {
-  //   dispatch(fetchVideosThunk('trending web development technology'));
-  // }, []);
-
   const videos = useSelector(selectVideos);
   const [isPending, isError] = useSelector(selectQueryState);
 
