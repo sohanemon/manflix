@@ -10,12 +10,10 @@ export default function ShowingResult() {
   return (
     <div className='mx-auto lg:w-3/4'>
       <h1 className='mb-6 text-2xl tracking-wider'>
-        {searchParam ? (
+        {searchParam && searchTrigger ? (
           <>
             Showing result for{' '}
-            <span className='select-auto text-primary-500'>
-              {searchTrigger && searchParam}
-            </span>
+            <span className='select-auto text-primary-500'>{searchParam}</span>
           </>
         ) : (
           <>Editor&apos;s Choice</>
