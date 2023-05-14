@@ -8,7 +8,6 @@ interface VideoStateProps {
   isLoading: boolean;
   isError: boolean;
   searchTriggered: boolean;
-  testCase: number;
 }
 const initialState: VideoStateProps = {
   searchParams: '',
@@ -16,7 +15,6 @@ const initialState: VideoStateProps = {
   isLoading: true,
   isError: false,
   searchTriggered: false,
-  testCase: 100,
 };
 
 // asynchronous thunk
@@ -42,9 +40,7 @@ const videoSlice = createSlice({
   extraReducers(builder) {
     builder
       // checking extra reducer with previous state
-      .addCase(videoSlice.actions.updateSearchParam, (state) => {
-        state.testCase = state.testCase + 5;
-      })
+
       .addCase(fetchVideosThunk.fulfilled, (state, action) => {
         state.videos = action.payload;
         state.isLoading = false;
