@@ -1,4 +1,5 @@
 'use client';
+import { fetchVideosThunk } from '@/slices/video';
 import { AppDispatch } from '@/store';
 import { Listbox } from '@headlessui/react';
 import { useState, useTransition } from 'react';
@@ -25,7 +26,7 @@ const Input = () => {
       console.log(
         ' lorem, ipsum dolor sit amet consectetur adipisicing elit. ullam odio hic nisi voluptatem reprehenderit, cum quidem aliquam beatae asperiores dignissimos libero dolor ea fugit possimus eos, quisquam iste nostrum fuga.'
       );
-      // dispatch(fetchVideosThunk(searchParam));
+      dispatch(fetchVideosThunk(searchParam));
     }
   }
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
