@@ -3,7 +3,7 @@ export async function videoFetcher(payload: any) {
   const res = await fetch(`${url}/api/v2/video?query=${payload}`, {
     // next: { revalidate: 500 },
     method: 'POST',
-    cache: 'force-cache',
+    cache: 'no-store',
     headers: {
       'Content-Type': 'application/json',
     },
