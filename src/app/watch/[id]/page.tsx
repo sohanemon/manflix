@@ -9,13 +9,13 @@ export default async function Page({ params: { id } }: any) {
   const videoDetails = (await res.json()) as VideoDetails;
 
   return (
-    <section className='w-full mx-auto md:w-3/4 lg:w-3/5 '>
+    <section className='w-full mx-auto md:w-3/4 lg:w-3/5'>
       <iframe
         className='w-full mx-auto aspect-video'
         src={videoDetails.link}
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
       ></iframe>
-      <div className='mt-4'>
+      <div className='px-4 mt-4 md:px-0'>
         <Title title={videoDetails.title}></Title>
         <div className='flex justify-between'>
           <p className='text-primary-500'>{videoDetails.author}</p>
