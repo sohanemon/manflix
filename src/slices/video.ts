@@ -43,7 +43,7 @@ const videoSlice = createSlice({
     builder
       // checking extra reducer with previous state
       .addCase(videoSlice.actions.updateSearchParam, (state) => {
-        ++state.testCase;
+        state.testCase = state.testCase + 5;
       })
       .addCase(fetchVideosThunk.fulfilled, (state, action) => {
         state.videos = action.payload;
