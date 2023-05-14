@@ -1,9 +1,7 @@
 export const metadata = {
-  title: 'emon',
+  title: 'Watch | ManFLIX 🚧',
 };
 
-export default function Layout(props) {
-  console.log('🛑 ~ Layout ~ props:', props);
-
-  return <></>;
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return children;
 }
