@@ -12,7 +12,7 @@ export default function Index() {
   const [isPending, isError] = useSelector(selectQueryState);
   useFetcher();
   return (
-    <div className='grid grid-cols-1 gap-5 mx-auto sm:grid-cols-2 md:grid-cols-3 justify-items-center lg:w-3/4'>
+    <div className='grid grid-cols-1 gap-5 px-4 mx-auto sm:grid-cols-2 md:grid-cols-3 justify-items-center lg:w-3/4'>
       {isPending
         ? [...Array(6).fill(null)].map((i, idx) => (
             <VideoCardSkeletons key={idx} />
