@@ -7,12 +7,12 @@ export default function ShowingResult() {
   const searchParam = useSelector(selectSearchParams);
 
   return (
-    <div>
-      <h1>
+    <div className='mx-auto lg:w-3/4'>
+      <h1 className='mb-6 text-2xl tracking-wider'>
         {searchParam ? (
           <>Showing result for {searchParam}</>
         ) : (
-          <>Editors Choice</>
+          <>Editor&apos;s Choice</>
         )}
       </h1>
     </div>
