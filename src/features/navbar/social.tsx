@@ -12,7 +12,7 @@ export default function Social() {
           </span>
         ))}
       </div>
-      <LinkBtn className='ml-5'>Add video</LinkBtn>
+      <LinkBtn className='ml-5 text-sm'>Add video</LinkBtn>
     </div>
   );
 }
