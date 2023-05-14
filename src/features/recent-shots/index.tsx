@@ -28,7 +28,6 @@ export default function Index() {
       {videos?.map((video) => (
         <VideoCard key={video.id} {...video}></VideoCard>
       ))}
-      <LoaderLottie />
       <ShowMore />
     </div>
   );
