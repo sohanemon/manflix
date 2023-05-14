@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function LinkBtn({ children, className }: Props) {
   return (
     <div
-      className={`flex justify-center max-w-md mx-auto space-y-6 ${className}`}
+      className={`flex whitespace-nowrap justify-center max-w-md mx-auto space-y-6 ${className}`}
     >
       <Link
         target='_blank'
