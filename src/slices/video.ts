@@ -10,7 +10,7 @@ interface VideoStateProps {
 }
 const initialState: VideoStateProps = {
   videos: [],
-  isLoading: false,
+  isLoading: true,
   isError: false,
   searchTriggered: false,
 };
