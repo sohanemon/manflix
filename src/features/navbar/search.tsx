@@ -64,7 +64,7 @@ const Input = () => {
           type='email'
           id='UserEmail'
           placeholder='Search your pleasure'
-          className='w-full rounded-md  border-none outline-none py-2.5 shadow-sm sm:text-sm bg-transparent pe-10 placeholder:text-gray-600 '
+          className='w-full rounded-md  border-none outline-none py-2.5 shadow-sm sm:text-sm bg-transparent pe-10 placeholder:text-gray-600 [-internal-autofill-selected]:bg-transparent'
         />
       </div>
       <BsSearch
