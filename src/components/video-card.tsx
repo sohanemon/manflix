@@ -12,7 +12,7 @@ export default function VideoCard({
   return (
     <Link
       href={`/watch/${id}`}
-      className='relative w-full max-w-xs overflow-hidden text-black transition-all bg-white rounded-lg group hover:rounded-none '
+      className='relative w-full max-w-xs overflow-hidden text-black transition-all bg-white rounded-lg group hover:rounded-none aspect-video'
     >
       <Image
         className={`w-full transition-all duration-500 ${
