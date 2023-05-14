@@ -9,7 +9,7 @@ export default function Logo() {
         <h1 className='flex items-center justify-between text-2xl font-bold '>
           <p>MAN </p> <p className='text-primary-500'>FLIX</p>
         </h1>
-        <p className='leading-3 tracking-wider text-fluid text-secondary-500'>
+        <p className='text-sm leading-3 tracking-wider whitespace-nowrap text-secondary-500'>
           Awesome Videos
         </p>
       </div>
