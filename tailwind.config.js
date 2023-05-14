@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontSize: { fluid: 'minmax(14px,32px)' },
+      fontSize: { fluid: 'clamp(14px,50%,32px)' },
       colors: {
         primary: {
           100: '#fbe1de',
