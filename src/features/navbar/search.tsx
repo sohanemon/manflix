@@ -28,6 +28,7 @@ const Input = () => {
 
   function handleSearch() {
     router.push('/');
+    // first go to home route bcoz there is recentShows
     dispatch(fetchVideosThunk(searchParam));
     // removed focus from the input element
     inputRef.current?.blur();
