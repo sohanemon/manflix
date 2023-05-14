@@ -11,6 +11,7 @@ import { AppDispatch } from '@/store';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import VideoCard from '../../components/video-card';
+import ShowMore from './show-more';
 
 export default function Index() {
   const dispatch = useDispatch<AppDispatch>();
@@ -30,7 +31,7 @@ export default function Index() {
         : videos?.map((video) => (
             <VideoCard key={video.id} {...video}></VideoCard>
           ))}
-      {/* <ShowMore /> */}
+      {!isPending && <ShowMore />}
     </div>
   );
 }
