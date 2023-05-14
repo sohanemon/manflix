@@ -1,3 +1,4 @@
+import Fetcher from '@/app/fetcher';
 import Link from 'next/link';
 
 export default function Logo() {
@@ -9,6 +10,7 @@ export default function Logo() {
       <p className='leading-3 tracking-wider text-secondary-500'>
         Awesome Videos
       </p>
+      <Fetcher />
     </Link>
   );
 }
