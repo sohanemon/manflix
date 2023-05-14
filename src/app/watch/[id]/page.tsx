@@ -1,12 +1,7 @@
 import Description from './description';
 import Title from './title';
 
-interface ParamProps {
-  readonly children: React.ReactNode;
-  params: { id: string };
-}
-
-export default async function Page({ params: { id } }: ParamProps) {
+export default async function Page({ params: { id } }: any) {
   const res = await fetch('http://localhost:3000/api/v2/player', {
     body: JSON.stringify({ id }),
     method: 'POST',
