@@ -5,10 +5,16 @@ import { useSelector } from 'react-redux';
 
 export default function ShowingResult() {
   const searchParam = useSelector(selectSearchParams);
-  if (searchParam)
-    return (
-      <div>
-        <h1>Showing result for {searchParam}</h1>
-      </div>
-    );
+
+  return (
+    <div>
+      <h1>
+        {searchParam ? (
+          <>Showing result for {searchParam}</>
+        ) : (
+          <>Editors Choice</>
+        )}
+      </h1>
+    </div>
+  );
 }
