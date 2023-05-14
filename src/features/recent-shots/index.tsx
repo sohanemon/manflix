@@ -1,21 +1,19 @@
 'use client';
 
-import { videoFetcher } from '@/lib/fetcher';
 import { fetchVideosThunk, selectVideos } from '@/slices/video';
-import { use, useEffect } from 'react';
+import { AppDispatch } from '@/store';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import VideoCard from '../../components/video-card';
 import ShowMore from './show-more';
-import { AppDispatch } from '@/store';
 
 export default function Index() {
-  // const videos = use(videoFetcher('abdullah bin abdur razzak new'));
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(fetchVideosThunk('abdullah bin abdur razzak 2023'));
 
     return () => {};
-  }, []);
+  }, [dispatch]);
 
   const videos = useSelector(selectVideos);
 
