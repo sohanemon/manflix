@@ -7,7 +7,7 @@ export default function LoaderLottie() {
       <Player
         autoplay
         loop
-        className='fixed inset-0 w-48 m-auto aspect-square'
+        className='sticky inset-0 w-48 my-auto aspect-square'
         src={require('../assets/lottie/samurai.json')}
       ></Player>
     </>
