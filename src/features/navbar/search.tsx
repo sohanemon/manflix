@@ -2,6 +2,7 @@
 import { fetchVideosThunk } from '@/slices/video';
 import { AppDispatch } from '@/store';
 import { Listbox } from '@headlessui/react';
+import { useRouter } from 'next/navigation';
 import { useRef, useState, useTransition } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { HiOutlineChevronDown } from 'react-icons/hi';
@@ -18,6 +19,7 @@ export default function Search() {
 
 const Input = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const router = useRouter();
   const [searchParam, setSearchParam] = useState('');
   // type is required for suggestion
   const inputRef = useRef<HTMLInputElement>(null);
@@ -25,6 +27,7 @@ const Input = () => {
   const [isPending, startTransition] = useTransition();
 
   function handleSearch() {
+    router.push('/');
     dispatch(fetchVideosThunk(searchParam));
     // removed focus from the input element
     inputRef.current?.blur();
