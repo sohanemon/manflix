@@ -19,15 +19,22 @@ export default function Search() {
 const Input = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [searchParam, setSearchParam] = useState('');
+  // type is required for suggestion
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isPending, startTransition] = useTransition();
+
+  function handleSearch() {
+    dispatch(fetchVideosThunk(searchParam));
+    // removed focus from the input element
+    inputRef.current?.blur();
+  }
   function handleKeyEnter(e: React.KeyboardEvent) {
     if (e.key === 'Enter' && !isPending) {
-      dispatch(fetchVideosThunk(searchParam));
-      inputRef.current?.blur();
+      handleSearch();
     }
   }
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     startTransition(() => {
       setSearchParam(e.target.value);
