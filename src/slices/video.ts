@@ -30,8 +30,8 @@ const videoSlice = createSlice({
   name: 'videos',
   initialState,
   reducers: {
-    triggerSearch(state, { payload }) {
-      state.searchTriggered = payload;
+    triggerSearch(state) {
+      state.searchTriggered = true;
     },
     updateSearchParam(state, { payload }) {
       state.searchParams = payload;
@@ -45,15 +45,18 @@ const videoSlice = createSlice({
         state.videos = action.payload;
         state.isLoading = false;
         state.isError = false;
+        state.searchTriggered = false;
       })
       .addCase(fetchVideosThunk.pending, (state) => {
         state.isLoading = true;
         state.isError = false;
+        state.searchTriggered = false;
       })
       .addCase(fetchVideosThunk.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
         state.videos = [];
+        state.searchTriggered = false;
       });
   },
 });
