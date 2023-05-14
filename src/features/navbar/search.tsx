@@ -1,12 +1,16 @@
 'use client';
-import { fetchVideosThunk } from '@/slices/video';
+import {
+  fetchVideosThunk,
+  selectSearchParams,
+  updateSearchParam,
+} from '@/slices/video';
 import { AppDispatch } from '@/store';
 import { Listbox } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
 import { useRef, useState, useTransition } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { HiOutlineChevronDown } from 'react-icons/hi';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Search() {
   return (
@@ -20,7 +24,7 @@ export default function Search() {
 const Input = () => {
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
-  const [searchParam, setSearchParam] = useState('');
+  const searchParam = useSelector(selectSearchParams);
   // type is required for suggestion
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -41,7 +45,7 @@ const Input = () => {
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     startTransition(() => {
-      setSearchParam(e.target.value);
+      dispatch(updateSearchParam(e.target.value));
     });
   }
 
@@ -54,11 +58,12 @@ const Input = () => {
 
         <input
           ref={inputRef}
+          defaultValue={searchParam}
           onKeyUp={(e) => handleKeyEnter(e)}
           onChange={(e) => handleChange(e)}
           type='email'
           id='UserEmail'
-          placeholder='grow your beard'
+          placeholder='Search your pleasure'
           className='w-full rounded-md  border-none outline-none py-2.5 shadow-sm sm:text-sm bg-transparent pe-10 placeholder:text-gray-600 '
         />
       </div>
