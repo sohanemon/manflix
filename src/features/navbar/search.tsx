@@ -2,7 +2,7 @@
 import { fetchVideosThunk } from '@/slices/video';
 import { AppDispatch } from '@/store';
 import { Listbox } from '@headlessui/react';
-import { useState, useTransition } from 'react';
+import { useRef, useState, useTransition } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { HiOutlineChevronDown } from 'react-icons/hi';
 import { useDispatch } from 'react-redux';
@@ -19,11 +19,13 @@ export default function Search() {
 const Input = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [searchParam, setSearchParam] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const [isPending, startTransition] = useTransition();
   function handleKeyEnter(e: React.KeyboardEvent) {
     if (e.key === 'Enter' && !isPending) {
       dispatch(fetchVideosThunk(searchParam));
+      inputRef.current?.blur();
     }
   }
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -40,6 +42,7 @@ const Input = () => {
         </label>
 
         <input
+          ref={inputRef}
           onKeyUp={(e) => handleKeyEnter(e)}
           onChange={(e) => handleChange(e)}
           type='email'
