@@ -17,6 +17,7 @@ const initialState: VideoStateProps = {
   searchTriggered: false,
 };
 
+// asynchronous thunk
 export const fetchVideosThunk = createAsyncThunk(
   'fetch-videos',
   async (searchParam: string) => {
@@ -24,6 +25,7 @@ export const fetchVideosThunk = createAsyncThunk(
   }
 );
 
+// main video slice [contains reducer + actions]
 const videoSlice = createSlice({
   name: 'videos',
   initialState,
@@ -58,12 +60,17 @@ const videoSlice = createSlice({
   },
 });
 
+// exporting actions
 export const { triggerSearch, updateSearchParam } = videoSlice.actions;
 
+// exporting selections
 export const selectVideos = (state: RootState) => state?.videos.videos;
 export const selectQueryState = (state: RootState) => [
   state.videos.isLoading,
   state.videos.isError,
 ];
+export const selectSearchParams = (state: RootState) =>
+  state.videos.searchParams;
 
+// exporting default reducer
 export default videoSlice.reducer;
