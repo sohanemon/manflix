@@ -4,7 +4,7 @@ import VideoCardSkeletons from '@/components/video-card-skeletone';
 export default function Loading() {
   return (
     <>
-      <LoaderLottie />
+      <LoaderLottie className='w-48' />
     </>
   );
 }
