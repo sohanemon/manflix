@@ -1,9 +1,8 @@
 export async function videoFetcher(payload: any) {
   const url = 'http://localhost:3000';
   const res = await fetch(`${url}/api/v2/video?query=${payload}`, {
-    // next: { revalidate: 500 },
     method: 'POST',
-    cache: 'no-store',
+    cache: 'force-cache',
     headers: {
       'Content-Type': 'application/json',
     },
