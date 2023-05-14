@@ -45,18 +45,18 @@ const videoSlice = createSlice({
         state.videos = action.payload;
         state.isLoading = false;
         state.isError = false;
-        state.searchTriggered = false;
+        state.searchTriggered = true;
       })
       .addCase(fetchVideosThunk.pending, (state) => {
         state.isLoading = true;
         state.isError = false;
-        state.searchTriggered = true;
+        state.searchTriggered = false;
       })
       .addCase(fetchVideosThunk.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
-        state.videos = [];
         state.searchTriggered = false;
+        state.videos = [];
       });
   },
 });
