@@ -5,7 +5,7 @@ import { BsFacebook, BsLinkedin, BsTwitter, BsYoutube } from 'react-icons/bs';
 export default function Social() {
   return (
     <div className='items-center hidden md:flex justify-evenly'>
-      <div className='flex items-center gap-3'>
+      <div className='items-center hidden gap-3 lg:flex'>
         {platform.map((el) => (
           <span title={el.name} key={el.name}>
             {el.icon}

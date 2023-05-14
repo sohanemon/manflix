@@ -8,7 +8,7 @@ export default function ShowingResult() {
   const searchTrigger = useSelector(selectTriggerSearch);
 
   return (
-    <div className='mx-auto lg:w-3/4'>
+    <div className='px-4 mx-auto lg:w-3/4'>
       <h1 className='mb-6 text-2xl tracking-wider'>
         {searchParam && searchTrigger ? (
           <>

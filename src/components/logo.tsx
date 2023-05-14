@@ -3,7 +3,7 @@ import LoaderLottie from './loader-lottie';
 
 export default function Logo() {
   return (
-    <Link href={'/'} className='flex items-center w-max'>
+    <Link href={'/'} className='flex items-center w-max '>
       <LoaderLottie className='w-14' />
       <div className='flex flex-col'>
         <h1 className='flex items-center justify-between text-3xl font-bold'>
