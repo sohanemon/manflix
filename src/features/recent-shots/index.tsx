@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import VideoCard from '../../components/video-card';
 import ShowMore from './show-more';
+import LoaderLottie from '@/components/loader-lottie';
 
 export default function Index() {
   const dispatch = useDispatch<AppDispatch>();
@@ -20,7 +21,7 @@ export default function Index() {
   const videos = useSelector(selectVideos);
   const [isPending, isError] = useSelector(selectQueryState);
 
-  if (isPending) return <h1 className='text-7xl'>Loading</h1>;
+  if (isPending) return <LoaderLottie />;
 
   return (
     <div className='grid grid-cols-1 gap-5 mx-auto sm:grid-cols-2 md:grid-cols-3 justify-items-evenly lg:w-3/4'>

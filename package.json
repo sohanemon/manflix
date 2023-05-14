@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@prisma/client": "^4.13.0",
     "@reduxjs/toolkit": "^1.9.5",
     "@tailwindcss/container-queries": "^0.1.1",
