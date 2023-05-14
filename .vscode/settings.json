@@ -1,6 +1,6 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "cSpell.words": ["FLIX"],
+  "cSpell.words": ["FLIX", "Manflix"],
   "gitdoc.enabled": true
 }
