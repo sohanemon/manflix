@@ -4,10 +4,14 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 interface VideoStateProps {
   videos: Video[];
+  isLoading: boolean;
+  isError: boolean;
   searchTriggered: boolean;
 }
 const initialState: VideoStateProps = {
   videos: [],
+  isLoading: false,
+  isError: false,
   searchTriggered: false,
 };
 
@@ -27,9 +31,21 @@ const videoSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addCase(fetchVideosThunk.fulfilled, (state, action) => {
-      state.videos = action.payload;
-    });
+    builder
+      .addCase(fetchVideosThunk.fulfilled, (state, action) => {
+        state.videos = action.payload;
+        state.isLoading = false;
+        state.isError = false;
+      })
+      .addCase(fetchVideosThunk.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+      })
+      .addCase(fetchVideosThunk.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.videos = [];
+      });
   },
 });
 
