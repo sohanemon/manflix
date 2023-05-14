@@ -2,7 +2,7 @@ import Description from './description';
 import Title from './title';
 
 export default async function Page({ params: { id } }: any) {
-  const res = await fetch('http://localhost:3000/api/v2/player', {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/player`, {
     body: JSON.stringify({ id }),
     method: 'POST',
   });
