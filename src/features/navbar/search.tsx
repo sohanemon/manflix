@@ -58,7 +58,10 @@ const Input = () => {
           className='w-full rounded-md  border-none outline-none py-2.5 shadow-sm sm:text-sm bg-transparent pe-10 placeholder:text-gray-600 '
         />
       </div>
-      <BsSearch />
+      <BsSearch
+        className='cursor-pointer hover:text-primary-500'
+        onClick={() => handleSearch()}
+      />
     </>
   );
 };
