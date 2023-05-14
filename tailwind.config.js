@@ -7,6 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: [{ fluid: '1vw' }],
       colors: {
         primary: {
           100: '#fbe1de',
