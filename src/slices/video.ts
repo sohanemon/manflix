@@ -53,4 +53,9 @@ export const { triggerSearch } = videoSlice.actions;
 
 export const selectVideos = (state: RootState) => state?.videos.videos;
 
+export const selectQueryState = (state: RootState) => [
+  state.videos.isLoading,
+  state.videos.isError,
+];
+
 export default videoSlice.reducer;
