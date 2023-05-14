@@ -31,7 +31,7 @@ const videoSlice = createSlice({
   initialState,
   reducers: {
     triggerSearch(state) {
-      state.searchTriggered = true;
+      state.searchTriggered = false;
     },
     updateSearchParam(state, { payload }) {
       state.searchParams = payload;

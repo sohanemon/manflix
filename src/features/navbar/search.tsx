@@ -2,6 +2,7 @@
 import {
   fetchVideosThunk,
   selectSearchParams,
+  triggerSearch,
   updateSearchParam,
 } from '@/slices/video';
 import { AppDispatch } from '@/store';
@@ -60,6 +61,7 @@ const Input = () => {
           ref={inputRef}
           value={searchParam}
           onKeyUp={(e) => handleKeyEnter(e)}
+          onFocus={() => dispatch(triggerSearch())}
           onChange={(e) => handleChange(e)}
           type='email'
           id='UserEmail'
