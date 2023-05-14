@@ -14,7 +14,6 @@ export default function VideoCard({
       href={`/watch/${id}`}
       className='relative w-full max-w-xs overflow-hidden text-black transition-all bg-white rounded-lg group hover:rounded-none '
     >
-      <div className='invisible rotate-2 -rotate-2' />
       <Image
         className={`w-full transition-all duration-500 ${
           chooseOpt() ? 'group-hover:-rotate-2' : 'group-hover:rotate-2'

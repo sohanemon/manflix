@@ -11,11 +11,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import VideoCard from '../../components/video-card';
 import ShowMore from './show-more';
 import LoaderLottie from '@/components/loader-lottie';
+import VideoCardSkeletons from '@/components/video-card-skeletone';
 
 export default function Index() {
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    dispatch(fetchVideosThunk('abdullah bin abdur razzak 2023'));
+    dispatch(fetchVideosThunk('trending web development technology'));
   }, [dispatch]);
 
   const videos = useSelector(selectVideos);
@@ -28,7 +29,8 @@ export default function Index() {
       {videos?.map((video) => (
         <VideoCard key={video.id} {...video}></VideoCard>
       ))}
-      <ShowMore />
+      {/* <ShowMore /> */}
+      <VideoCardSkeletons />
     </div>
   );
 }
