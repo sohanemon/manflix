@@ -58,7 +58,7 @@ const Input = () => {
 
         <input
           ref={inputRef}
-          defaultValue={searchParam}
+          value={searchParam}
           onKeyUp={(e) => handleKeyEnter(e)}
           onChange={(e) => handleChange(e)}
           type='email'
