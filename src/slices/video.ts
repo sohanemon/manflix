@@ -40,7 +40,7 @@ const videoSlice = createSlice({
   extraReducers(builder) {
     builder
       // checking extra reducer with previous state
-      .addCase(videoSlice.actions.updateSearchParam, () => {
+      .addCase(videoSlice.actions.updateSearchParam, (state) => {
         console.log('🛑🛑🛑 extra reducer 🛑🛑🛑');
       })
       .addCase(fetchVideosThunk.fulfilled, (state, action) => {
