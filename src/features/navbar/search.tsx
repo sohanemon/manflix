@@ -1,5 +1,4 @@
 'use client';
-import { fetchVideosThunk } from '@/slices/video';
 import { AppDispatch } from '@/store';
 import { Listbox } from '@headlessui/react';
 import { useState, useTransition } from 'react';
