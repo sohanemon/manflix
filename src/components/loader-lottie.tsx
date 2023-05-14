@@ -6,7 +6,7 @@ export default function LoaderLottie() {
       <Player
         autoplay
         loop
-        src='https://assets3.lottiefiles.com/packages/lf20_UJNc2t.json'
+        src={require('../assets/lottie/samurai.json')}
         style={{ height: '300px', width: '300px' }}
       ></Player>
     </>
