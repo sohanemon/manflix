@@ -50,7 +50,7 @@ const videoSlice = createSlice({
       .addCase(fetchVideosThunk.pending, (state) => {
         state.isLoading = true;
         state.isError = false;
-        state.searchTriggered = false;
+        state.searchTriggered = true;
       })
       .addCase(fetchVideosThunk.rejected, (state) => {
         state.isLoading = false;
@@ -72,6 +72,8 @@ export const selectQueryState = (state: RootState) => [
 ];
 export const selectSearchParams = (state: RootState) =>
   state.videos.searchParams;
+export const selectTriggerSearch = (state: RootState) =>
+  state.videos.searchTriggered;
 
 // exporting default reducer
 export default videoSlice.reducer;

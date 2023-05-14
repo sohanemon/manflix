@@ -1,10 +1,11 @@
 'use client';
 
-import { selectSearchParams } from '@/slices/video';
+import { selectSearchParams, selectTriggerSearch } from '@/slices/video';
 import { useSelector } from 'react-redux';
 
 export default function ShowingResult() {
   const searchParam = useSelector(selectSearchParams);
+  const searchTrigger = useSelector(selectTriggerSearch);
 
   return (
     <div className='mx-auto lg:w-3/4'>
@@ -12,7 +13,9 @@ export default function ShowingResult() {
         {searchParam ? (
           <>
             Showing result for{' '}
-            <span className='select-auto text-primary-500'>{searchParam}</span>
+            <span className='select-auto text-primary-500'>
+              {searchTrigger && searchParam}
+            </span>
           </>
         ) : (
           <>Editor&apos;s Choice</>
