@@ -12,7 +12,7 @@ export default function ShowingResult() {
       <h1 className='mb-6 text-2xl tracking-wider'>
         {searchParam && searchTrigger ? (
           <>
-            Showing result for{' '}
+            Showing results for{' '}
             <span className='select-auto text-primary-500'>{searchParam}</span>
           </>
         ) : (
