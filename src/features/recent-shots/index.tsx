@@ -1,15 +1,8 @@
 'use client';
 
-import LoaderLottie from '@/components/loader-lottie';
 import VideoCardSkeletons from '@/components/video-card-skeletone';
-import {
-  fetchVideosThunk,
-  selectQueryState,
-  selectVideos,
-} from '@/slices/video';
-import { AppDispatch } from '@/store';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { selectQueryState, selectVideos } from '@/slices/video';
+import { useSelector } from 'react-redux';
 import VideoCard from '../../components/video-card';
 import ShowMore from './show-more';
 
