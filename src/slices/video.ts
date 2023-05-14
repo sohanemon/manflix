@@ -3,12 +3,14 @@ import { RootState } from '@/store';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 interface VideoStateProps {
+  searchParams: string;
   videos: Video[];
   isLoading: boolean;
   isError: boolean;
   searchTriggered: boolean;
 }
 const initialState: VideoStateProps = {
+  searchParams: '',
   videos: [],
   isLoading: true,
   isError: false,
@@ -29,9 +31,13 @@ const videoSlice = createSlice({
     triggerSearch(state, { payload }) {
       state.searchTriggered = payload;
     },
+    updateSearchParam(state, { payload }) {
+      state.searchParams = payload;
+    },
   },
   extraReducers(builder) {
     builder
+      .addCase()
       .addCase(fetchVideosThunk.fulfilled, (state, action) => {
         state.videos = action.payload;
         state.isLoading = false;
@@ -49,10 +55,9 @@ const videoSlice = createSlice({
   },
 });
 
-export const { triggerSearch } = videoSlice.actions;
+export const { triggerSearch, updateSearchParam } = videoSlice.actions;
 
 export const selectVideos = (state: RootState) => state?.videos.videos;
-
 export const selectQueryState = (state: RootState) => [
   state.videos.isLoading,
   state.videos.isError,
