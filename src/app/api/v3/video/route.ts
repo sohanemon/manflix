@@ -20,34 +20,37 @@ export async function POST(req: Request) {
     } = new JSDOM(html);
     const searchNode = document.querySelector('#primary > div.row.search');
     const nodeList = searchNode?.childNodes;
+    console.log('🛑 ~ POST ~ nodeList:', nodeList);
 
-    let videos: Video[] = [];
-    nodeList?.forEach((el, idx) => {
-      let video: Video;
-      if (el.childNodes[2]?.textContent) {
-        const element = el as HTMLDivElement;
-        const thumbnail = element
-          .querySelector('.gytImg')
-          ?.querySelector('img')
-          ?.getAttribute('src')!;
+    return NextResponse.json(nodeList);
 
-        const id = thumbnailToId(thumbnail);
+    // let videos: Video[] = [];
+    // nodeList?.forEach((el, idx) => {
+    //   let video: Video;
+    //   if (el.childNodes[2]?.textContent) {
+    //     const element = el as HTMLDivElement;
+    //     const thumbnail = element
+    //       .querySelector('.gytImg')
+    //       ?.querySelector('img')
+    //       ?.getAttribute('src')!;
 
-        video = {
-          id,
-          title: element.querySelector('.gytTitle')?.textContent!,
-          thumbnail,
-          duration: element.querySelector('span.duration')?.textContent!,
-          link: '',
-          author: element.querySelector('small.d-block.text-truncate > a')
-            ?.textContent!,
-          description: '',
-        };
-        videos.push(video && video);
-      }
-    });
+    //     const id = thumbnailToId(thumbnail);
+
+    //     video = {
+    //       id,
+    //       title: element.querySelector('.gytTitle')?.textContent!,
+    //       thumbnail,
+    //       duration: element.querySelector('span.duration')?.textContent!,
+    //       link: '',
+    //       author: element.querySelector('small.d-block.text-truncate > a')
+    //         ?.textContent!,
+    //       description: '',
+    //     };
+    //     videos.push(video && video);
+    //   }
+    // });
     //   console.log(videos!);
-    return NextResponse.json(videos);
+    // return NextResponse.json(videos);
   } catch (error) {
     console.log('🛑 ~ POST ~ error:', error);
   }
