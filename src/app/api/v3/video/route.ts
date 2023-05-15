@@ -15,45 +15,7 @@ export async function POST(req: Request) {
       process.env.SEARCH_URL + query?.replaceAll(' ', '+')!
     );
     const html = await response.text();
-    const {
-      window: { document },
-    } = new JSDOM(html);
-    const searchNode = document.querySelector(
-      '#primary > div.row.search .gytImg img'
-    );
-    return NextResponse.json(searchNode?.getAttribute('src'));
-    // const nodeList = searchNode?.childNodes;
-
-    let videos: Video[] = [];
-    const thumbnails: string[] = [];
-    // nodeList?.forEach((el, idx) => {
-    //   let video: Video;
-    //   if (el.childNodes[2]?.textContent) {
-    //     const element = el as HTMLDivElement;
-    //     const thumbnail = element
-    //       .querySelector('.gytImg')
-
-    //       ?.querySelector('img')
-    //       ?.getAttribute('src')!;
-    //     return NextResponse.json(thumbnail);
-
-    // const id = thumbnailToId(thumbnail);
-
-    // video = {
-    //   id,
-    //   title: element.querySelector('.gytTitle')?.textContent!,
-    //   thumbnail,
-    //   duration: element.querySelector('span.duration')?.textContent!,
-    //   link: '',
-    //   author: element.querySelector('small.d-block.text-truncate > a')
-    //     ?.textContent!,
-    //   description: '',
-    // };
-    // videos.push(video && video);
-    //   }
-    // });
-    //   console.log(videos!);
-    // return NextResponse.json(videos);
+    return NextResponse.json(html);
   } catch (error) {
     console.log('🛑 ~ POST ~ error:', error);
   }
