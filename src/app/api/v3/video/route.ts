@@ -3,6 +3,9 @@ import { NextResponse } from 'next/server';
 import { JSDOM } from 'jsdom';
 import thumbnailToId from '@/util/thumbnail-to-id';
 
+export async function GET(req: Request) {
+  return NextResponse.json("Don't touch videos API");
+}
 export async function POST(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
