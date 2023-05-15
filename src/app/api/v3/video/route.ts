@@ -22,6 +22,7 @@ export async function POST(req: Request) {
     const nodeList = searchNode?.childNodes;
 
     let videos: Video[] = [];
+    const thumbnails: string[] = [];
     nodeList?.forEach((el, idx) => {
       let video: Video;
       if (el.childNodes[2]?.textContent) {
@@ -31,25 +32,27 @@ export async function POST(req: Request) {
 
           ?.querySelector('img')
           ?.getAttribute('src')!;
-        console.log('🛑 ~ nodeList?.forEach ~ thumbnail:', thumbnail);
-        return NextResponse.json(thumbnail);
-        const id = thumbnailToId(thumbnail);
 
-        video = {
-          id,
-          title: element.querySelector('.gytTitle')?.textContent!,
-          thumbnail,
-          duration: element.querySelector('span.duration')?.textContent!,
-          link: '',
-          author: element.querySelector('small.d-block.text-truncate > a')
-            ?.textContent!,
-          description: '',
-        };
-        videos.push(video && video);
+        thumbnails.push(thumbnail);
+
+        // const id = thumbnailToId(thumbnail);
+
+        // video = {
+        //   id,
+        //   title: element.querySelector('.gytTitle')?.textContent!,
+        //   thumbnail,
+        //   duration: element.querySelector('span.duration')?.textContent!,
+        //   link: '',
+        //   author: element.querySelector('small.d-block.text-truncate > a')
+        //     ?.textContent!,
+        //   description: '',
+        // };
+        // videos.push(video && video);
       }
     });
     //   console.log(videos!);
     // return NextResponse.json(videos);
+    return NextResponse.json(thumbnails);
   } catch (error) {
     console.log('🛑 ~ POST ~ error:', error);
   }
