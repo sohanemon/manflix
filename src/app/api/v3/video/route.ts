@@ -32,8 +32,7 @@ export async function POST(req: Request) {
 
           ?.querySelector('img')
           ?.getAttribute('src')!;
-
-        thumbnails.push(thumbnail);
+        return NextResponse.json(thumbnail);
 
         // const id = thumbnailToId(thumbnail);
 
@@ -52,7 +51,6 @@ export async function POST(req: Request) {
     });
     //   console.log(videos!);
     // return NextResponse.json(videos);
-    return NextResponse.json(thumbnails);
   } catch (error) {
     console.log('🛑 ~ POST ~ error:', error);
   }
