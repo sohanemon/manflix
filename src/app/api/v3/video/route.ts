@@ -15,10 +15,6 @@ export async function POST(req: Request) {
       process.env.SEARCH_URL + query?.replaceAll(' ', '+')!
     );
     const html = await response.text();
-    const {
-      window: { document },
-    } = new JSDOM(html);
-    return NextResponse.json(document);
   } catch (error) {
     return NextResponse.json(error);
   }

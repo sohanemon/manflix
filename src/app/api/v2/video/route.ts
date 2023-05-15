@@ -19,7 +19,8 @@ export async function POST(req: Request) {
     const nodeList = searchNode?.childNodes;
 
     let videos: Video[] = [];
-    nodeList?.forEach((el, idx) => {
+    // @ts-ignore
+    [...nodeList].forEach((el, idx) => {
       let video: Video;
       if (el.childNodes[2]?.textContent) {
         const element = el as HTMLDivElement;
