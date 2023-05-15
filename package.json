@@ -32,7 +32,8 @@
     "react-redux": "^8.0.5",
     "swiper": "^9.2.4",
     "tailwindcss": "3.3.2",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "vercel": "^29.3.0"
   },
   "devDependencies": {
     "@types/jsdom": "^21.1.1"
