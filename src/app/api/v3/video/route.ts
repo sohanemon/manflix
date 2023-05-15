@@ -17,6 +17,6 @@ export async function POST(req: Request) {
     const html = await response.text();
     return NextResponse.json(html);
   } catch (error) {
-    console.log('🛑 ~ POST ~ error:', error);
+    return NextResponse.json(error);
   }
 }
