@@ -1,6 +1,5 @@
 import { videoFetcher } from '@/lib/fetcher';
-import { RootState } from '@/store';
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { create } from 'zustand';
 
 interface VideoStateProps {
   searchParams: string;
@@ -8,72 +7,44 @@ interface VideoStateProps {
   isLoading: boolean;
   isError: boolean;
   searchTriggered: boolean;
+  fetchVideos: (searchParam: string) => Promise<void>;
+  triggerSearch: () => void;
+  updateSearchParam: (payload: string) => void;
 }
-const initialState: VideoStateProps = {
+
+const useVideoStore = create<VideoStateProps>((set)=>({
   searchParams: '',
-  videos: [],
-  isLoading: true,
-  isError: false,
-  searchTriggered: false,
-};
-
-// asynchronous thunk
-export const fetchVideosThunk = createAsyncThunk(
-  'fetch-videos',
-  async (searchParam: string) => {
-    return await videoFetcher(searchParam);
-  }
-);
-
-// main video slice [contains reducer + actions]
-const videoSlice = createSlice({
-  name: 'videos',
-  initialState,
-  reducers: {
-    triggerSearch(state) {
-      state.searchTriggered = false;
+    videos: [],
+    isLoading: true,
+    isError: false,
+    searchTriggered: false,
+fetchVideos: async (searchParam: string) => {
+      set({ isLoading: true, isError: false, searchTriggered: false });
+      try {
+        const videos = await videoFetcher(searchParam);
+        set({
+          videos,
+          isLoading: false,
+          isError: false,
+          searchTriggered: true,
+        });
+      } catch (error) {
+        set({
+          videos: [],
+          isLoading: false,
+          isError: true,
+          searchTriggered: false,
+        });
+      }
     },
-    updateSearchParam(state, { payload }) {
-      state.searchParams = payload;
+    triggerSearch: () => {
+      set({ searchTriggered: false });
     },
-  },
-  extraReducers(builder) {
-    builder
-      // checking extra reducer with previous state
+    updateSearchParam: (payload: string) => {
+      set({ searchParams: payload });
+    }
 
-      .addCase(fetchVideosThunk.fulfilled, (state, action) => {
-        state.videos = action.payload;
-        state.isLoading = false;
-        state.isError = false;
-        state.searchTriggered = true;
-      })
-      .addCase(fetchVideosThunk.pending, (state) => {
-        state.isLoading = true;
-        state.isError = false;
-        state.searchTriggered = false;
-      })
-      .addCase(fetchVideosThunk.rejected, (state) => {
-        state.isLoading = false;
-        state.isError = true;
-        state.searchTriggered = false;
-        state.videos = [];
-      });
-  },
-});
+})
 
-// exporting actions
-export const { triggerSearch, updateSearchParam } = videoSlice.actions;
 
-// exporting selections
-export const selectVideos = (state: RootState) => state?.videos.videos;
-export const selectQueryState = (state: RootState) => [
-  state.videos.isLoading,
-  state.videos.isError,
-];
-export const selectSearchParams = (state: RootState) =>
-  state.videos.searchParams;
-export const selectTriggerSearch = (state: RootState) =>
-  state.videos.searchTriggered;
-
-// exporting default reducer
-export default videoSlice.reducer;
+export default useVideoStore;
