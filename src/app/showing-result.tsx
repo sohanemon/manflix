@@ -1,11 +1,11 @@
 'use client';
 
-import { selectSearchParams, selectTriggerSearch } from '@/slices/video';
+import useVideoStore from '@/store/video';
 import { useSelector } from 'react-redux';
 
 export default function ShowingResult() {
-  const searchParam = useSelector(selectSearchParams);
-  const searchTrigger = useSelector(selectTriggerSearch);
+  const searchParam = useVideoStore((s) => s.searchParams);
+  const searchTrigger = useVideoStore((s) => s.triggerSearch);
 
   return (
     <div className='px-4 mx-auto lg:w-3/4'>

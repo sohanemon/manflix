@@ -1,15 +1,12 @@
-import { fetchVideosThunk, selectVideos } from '@/slices/video';
-import { AppDispatch } from '@/store';
+import useVideoStore from '@/store/video';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 const useFetcher = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const videos = useSelector(selectVideos);
+  const videos = useVideoStore((s) => s.videos);
+  const fetchVideos = useVideoStore((s) => s.fetchVideos);
   useEffect(() => {
-    if (!videos.length)
-      dispatch(fetchVideosThunk('trending web development technology'));
-  }, [dispatch, videos.length]);
+    if (!videos.length) fetchVideos('trending web development technology');
+  }, [videos.length, fetchVideos]);
 };
 
 export default useFetcher;

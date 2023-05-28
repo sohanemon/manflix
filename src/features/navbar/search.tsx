@@ -1,11 +1,6 @@
 'use client';
-import {
-  fetchVideosThunk,
-  selectSearchParams,
-  triggerSearch,
-  updateSearchParam,
-} from '@/slices/video';
-import { AppDispatch } from '@/store';
+
+import useVideoStore from '@/store/video';
 import { Listbox } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
 import { useRef, useState, useTransition } from 'react';
@@ -23,9 +18,11 @@ export default function Search() {
 }
 
 const Input = () => {
-  const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
-  const searchParam = useSelector(selectSearchParams);
+  const searchParam = useVideoStore((s) => s.searchParams);
+  const fetchVideosThunk = useVideoStore((s) => s.fetchVideos);
+  const updateSearchParam = useVideoStore((s) => s.updateSearchParam);
+  const triggerSearch = useVideoStore((s) => s.triggerSearch);
   // type is required for suggestion
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -34,7 +31,7 @@ const Input = () => {
   function handleSearch() {
     router.push('/');
     // first go to home route bcoz there is recentShows
-    dispatch(fetchVideosThunk(searchParam));
+    fetchVideosThunk(searchParam);
     // removed focus from the input element
     inputRef.current?.blur();
   }
@@ -45,9 +42,7 @@ const Input = () => {
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    startTransition(() => {
-      dispatch(updateSearchParam(e.target.value));
-    });
+    updateSearchParam(e.target.value);
   }
 
   return (
@@ -61,7 +56,7 @@ const Input = () => {
           ref={inputRef}
           value={searchParam}
           onKeyUp={(e) => handleKeyEnter(e)}
-          onFocus={() => dispatch(triggerSearch())}
+          onFocus={() => triggerSearch()}
           onChange={(e) => handleChange(e)}
           type='email'
           id='UserEmail'
