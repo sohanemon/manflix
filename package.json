@@ -16,7 +16,7 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@types/node": "18.16.3",
     "@types/react": "18.2.0",
-    "@types/react-dom": "18.2.1",
+    "@types/react-dom": "18.3.7",
     "autoprefixer": "10.4.14",
     "eslint": "8.39.0",
     "eslint-config-next": "^13.4.0",
